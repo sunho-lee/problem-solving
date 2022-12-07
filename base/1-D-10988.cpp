@@ -14,10 +14,10 @@ using namespace std;
 // -----출력-----
 // bool result - 첫째 줄에 팰린드롬이면 true, 아니면 false를 출력한다.
 bool solution(string inputWord) {
+  bool result = false;
   // Write your code here
-  string reverseWord = inputWord;
-  reverse(reverseWord.begin(), reverseWord.end()); 
-  return reverseWord == inputWord;
+
+  return result;
 }
 
 string input() {
