@@ -9,19 +9,19 @@ using namespace std;
 //
 // int[9] = inputs -
 // int[7] = results -
-vector<int> solution(vector<int> inputs) {
-  vector<int> result;
+int solution(int n, int k, vector<int> input) {
+  int result = -1000004;
   // Write your code here
+  int psum[100001];
+  for (int i = 1; i <= n; i++) {
+    psum[i] = psum[i - 1] + input[i - 1];
+  }
+
+  for (int i = k; i <= n; i++) {
+    result = max(result, psum[i] - psum[i - k]);
+  }
 
   return result;
-}
-
-vector<int> input() {
-  vector<int> a;
-  for (int i = 0; i < a.size(); i++) {
-    cin >> a[i];
-  }
-  return a;
 }
 
 void output(vector<int> result) {
@@ -35,9 +35,18 @@ int main() {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  vector<int> input = ::input();
-  vector<int> result = ::solution(input);
+  int n, k;
+  cin >> n >> k;
+  vector<int> inputs;
 
-  ::output(result);
+  for (int i = 0; i < n; i++) {
+    int value;
+    cin >> value;
+    inputs.push_back(value);
+  }
+
+  int result = ::solution(n, k, inputs);
+
+  cout << result;
   return 0;
 }

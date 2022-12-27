@@ -1,33 +1,26 @@
 #include <algorithm>
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
 
-//
-//
-//
-// int[9] = inputs -
-// int[7] = results -
-vector<int> solution(vector<int> inputs) {
-  vector<int> result;
-  // Write your code here
+string solution(string str) {
+  string result;
+  // Write your code herejÔ
+  for (int i = 0; i < str.size(); i++) {
+    char cur = str.at(i);
+    if ('a' <= cur && cur <= 'z' && cur + 13 > 'z') {
+      cur = 96 + cur + 13 - 122;
+    } else if ('A' <= cur && cur <= 'Z' && cur + 13 > 'Z') {
+      cur = 64 + cur + 13 - 90;
+    } else if (('A' <= cur && cur <= 'Z') || ('a' <= cur && cur <= 'z')) {
+      cur = cur + 13;
+    }
+    result.push_back(cur);
+  }
 
   return result;
-}
-
-vector<int> input() {
-  vector<int> a;
-  for (int i = 0; i < a.size(); i++) {
-    cin >> a[i];
-  }
-  return a;
-}
-
-void output(vector<int> result) {
-  for (int i = 0; i < result.size(); i++) {
-    cout << result[i] << '\n';
-  }
 }
 
 int main() {
@@ -35,9 +28,11 @@ int main() {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  vector<int> input = ::input();
-  vector<int> result = ::solution(input);
+  string s;
+  getline(cin, s);
 
-  ::output(result);
+  string result = ::solution(s);
+  cout << result;
+
   return 0;
 }
