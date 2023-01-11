@@ -4,11 +4,9 @@
 
 using namespace std;
 
-//
-//
-//
-// int[9] = inputs -
-// int[7] = results -
+// 프로그래머스 옹알이:ㅈ
+
+// https://school.programmers.co.kr/learn/courses/30/lessons/120956?language=cpp
 int solution(int n, int k, vector<int> input) {
   int result = -1000004;
   // Write your code here

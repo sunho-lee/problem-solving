@@ -1,43 +1,31 @@
 #include <algorithm>
 #include <iostream>
+#include <map>
 #include <vector>
 
 using namespace std;
-
-//
-//
-//
-// int[9] = inputs -
-// int[7] = results -
-vector<int> solution(vector<int> inputs) {
-  vector<int> result;
-  // Write your code here
-
-  return result;
-}
-
-vector<int> input() {
-  vector<int> a;
-  for (int i = 0; i < a.size(); i++) {
-    cin >> a[i];
-  }
-  return a;
-}
-
-void output(vector<int> result) {
-  for (int i = 0; i < result.size(); i++) {
-    cout << result[i] << '\n';
-  }
-}
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
   cout.tie(NULL);
+  int t, n;
+  string a, b;
 
-  vector<int> input = ::input();
-  vector<int> result = ::solution(input);
-
-  ::output(result);
+  cin >> t;
+  while (t--) {
+    map<string, int> _map;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+      cin >> a >> b;
+      _map[b]++;
+    }
+    long long ret = 1;
+    for (auto c : _map) {
+      ret *= ((long long)c.second + 1);
+    }
+    ret--;
+    cout << ret << "\n";
+  }
   return 0;
 }
